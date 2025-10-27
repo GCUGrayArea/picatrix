@@ -1,0 +1,24 @@
+# Picatrix Meta-Repo Template
+# This is a minimal .gitignore for the template itself.
+# When the planning agent generates a PRD for a real project, it will
+# replace this with a comprehensive language-specific .gitignore.
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Windows
+desktop.ini
+$RECYCLE.BIN/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~

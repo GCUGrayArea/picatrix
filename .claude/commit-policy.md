@@ -2,7 +2,7 @@
 
 ## Rule: Never Commit Without Permission
 
-**You may ONLY commit changes to `docs/prd.md` and `docs/project-tasks.md` without asking the user first.**
+**You may ONLY commit changes to `docs/prd.md` and `docs/task-list.md` without asking the user first.**
 
 For ALL other files—implementation code, tests, documentation, configuration, etc.—you MUST ask the user for permission before committing.
 
@@ -15,9 +15,9 @@ For ALL other files—implementation code, tests, documentation, configuration, 
 
 ## What You CAN Commit Automatically
 
-- `docs/project-tasks.md` - Status changes, planning notes, file lists
+- `docs/task-list.md` - Status changes, planning notes, file lists
 - `docs/prd.md` - Clarifications, requirement updates (rare)
-- Any file explicitly named in `docs/project-tasks.md` as a planning/coordination document
+- Any file explicitly named in `docs/task-list.md` as a planning/coordination document
 
 These files are **coordination documents**. Committing them immediately is necessary for parallel agent coordination (see atomic-commits.md).
 
@@ -67,10 +67,10 @@ What would you prefer?
 
 When the user says "yes, commit it" or "looks good, commit":
 
-1. **Commit only the files you touched for this PR** (check your file list in docs/project-tasks.md)
+1. **Commit only the files you touched for this PR** (check your file list in docs/task-list.md)
 2. **Use a clear commit message** following the project's conventions
-3. **Update the PR status in docs/project-tasks.md** to Complete
-4. **Commit the docs/project-tasks.md.md change** (this one is automatic)
+3. **Update the PR status in docs/task-list.md** to Complete
+4. **Commit the docs/task-list.md change** (this one is automatic)
 
 Example:
 ```bash
@@ -84,8 +84,8 @@ git commit -m "feat(auth): implement JWT refresh token flow
 - Implements PR-005"
 
 # Now automatically update task list
-# (edit docs/project-tasks.md to mark PR-005 as Complete)
-git add docs/project-tasks.md
+# (edit docs/task-list.md to mark PR-005 as Complete)
+git add docs/task-list.md
 git commit -m "[Alice] PR-005: In Progress → Complete [AuthService.ts, UserModel.ts, auth.ts]"
 ```
 
@@ -138,8 +138,8 @@ No exceptions. Even if it seems obvious that the code is ready, ask first.
 ## Summary
 
 ```
-Planning docs (docs/project-tasks.md, docs/prd.md):     Auto-commit ✓
-Everything else:                                        Ask first ✗
+Planning docs (docs/task-list.md, docs/prd.md):     Auto-commit ✓
+Everything else:                                    Ask first ✗
 ```
 
 This rule keeps you coordinated with other agents while keeping the user in control of actual product changes.
