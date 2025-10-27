@@ -1,13 +1,13 @@
 # Atomic Commits for Coordination Documents
 
-docs/prd.md, docs/task-list.md, and .claude/agent-identity-lock.md are high-traffic documents critical to running agents in parallel. Multiple agents read these files to determine what work is available, what files are locked, and which identities are in use.
+docs/prd.md, docs/task-list.md, and .claude/agent-identity.lock are high-traffic coordination files critical to running agents in parallel. Multiple agents read these files to determine what work is available, what files are locked, and which identities are in use.
 
 ## Rule
 
-**Always commit every change to these coordination documents immediately after making it:**
+**Always commit every change to these coordination files immediately after making it:**
 - docs/prd.md
 - docs/task-list.md
-- .claude/agent-identity-lock.md
+- .claude/agent-identity.lock
 
 Every status change, file list update, identity claim/release, or planning note must be its own atomic commit with a clear explanation.
 
@@ -86,9 +86,9 @@ Commit immediately after:
 - Adding planning notes or analysis
 - Marking a PR as Broken with failure details
 - Adding QC notes or coverage information
-- Claiming an agent identity in agent-identity-lock.md
-- Releasing an agent identity in agent-identity-lock.md
-- Reclaiming a timed-out identity in agent-identity-lock.md
+- Claiming an agent identity in agent-identity.lock
+- Releasing an agent identity in agent-identity.lock
+- Reclaiming a timed-out identity in agent-identity.lock
 
 Do not batch multiple status changes into one commit. Each state transition is a separate atomic operation.
 ```

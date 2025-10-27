@@ -66,7 +66,7 @@ These documents contain important information about edge cases and best practice
 
 - `docs/prd.md` - Product Requirements Document
 - `docs/task-list.md` - PR task list with statuses and file locks
-- `.claude/agent-identity-lock.md` - Tracks which agent identities are in use
+- `.claude/agent-identity.lock` - Tracks which agent identities are in use
 
 These files are auto-committed by agents. Implementation code always requires user approval before committing.
 

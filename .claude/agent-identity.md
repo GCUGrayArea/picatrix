@@ -20,13 +20,13 @@ Agents use **Reservoir Dogs color names**:
 
 ## Identity Lock File
 
-Agent identities are tracked in `.claude/agent-identity-lock.md`. This file shows which identities are Available, In Use, or Timed Out.
+Agent identities are tracked in `.claude/agent-identity.lock`. This file shows which identities are Available, In Use, or Timed Out.
 
 ## Claiming an Identity
 
 **When you start work (via /work command):**
 
-1. **Read agent-identity-lock.md** to see available identities
+1. **Read agent-identity.lock** to see available identities
 2. **Take the first Available identity** in the list
 3. **Update the lock file:**
    ```markdown
@@ -53,7 +53,7 @@ Once claimed, use your identity in all coordination document commits:
 
 **When you complete or suspend your PR:**
 
-1. **Update agent-identity-lock.md** to mark your identity as Available:
+1. **Update agent-identity.lock** to mark your identity as Available:
    ```markdown
    | White | Available | - | - |
    ```
@@ -114,3 +114,8 @@ QC commits look like:
 **What if I'm only doing read-only analysis?**
 - If you're not claiming any PRs (just reviewing, analyzing, answering questions), you don't need an identity
 - Only claim identity when you're about to mark a PR as Planning or In Progress
+
+**What if the lock file doesn't exist yet?**
+- The template includes a default agent-identity.lock with all identities Available
+- Planning agent should not need to create it
+- If somehow missing, copy the format from .claude/agent-identity.md header

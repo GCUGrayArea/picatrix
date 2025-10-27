@@ -67,7 +67,7 @@ WORKFLOW:
    - **If work must be paused:** Mark as Suspended, commit partial work with notes on: completed sub-tasks, known issues, and how to resume
 
 CRITICAL RULES:
-- Review .claude/commit-policy.md. You may only auto-commit coordination documents (task-list.md, prd.md, agent-identity-lock.md). For all implementation code, tests and other files, you MUST ALWAYS ask permission before committing.
+- Review .claude/commit-policy.md. You may only auto-commit coordination files (task-list.md, prd.md, agent-identity.lock). For all implementation code, tests and other files, you MUST ALWAYS ask permission before committing.
 - Never start work on a PR that would touch files locked by In Progress or Suspended PRs
 - Never select a PR whose dependency PRs are not marked Complete—if you encounter this, alert the user
 - Always verify no new conflicts arose between planning and starting work
