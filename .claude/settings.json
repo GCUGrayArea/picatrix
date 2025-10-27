@@ -1,0 +1,33 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/trigger-qc.sh"
+          }
+        ]
+      }
+    ]
+  },
+  "commands": {
+    "work": {
+      "description": "Start working on the next available PR following parallel agent coordination rules",
+      "prompt": "file:.claude/rules/agent-defaults.md\n\nYou are starting a new work session. Review docs/prd.md and docs/task-list.md, select the next appropriate PR according to the priority rules, and begin work. Remember to follow commit-policy.md - only auto-commit planning documents."
+    },
+    "qc": {
+      "description": "Run quality control checks on completed PRs",
+      "prompt": "file:.claude/commands/qc-agent.md\n\nRun a full QC check. Review all Complete PRs in docs/task-list.md, run tests, check coverage, and mark as Broken/Approved/Certified as appropriate."
+    },
+    "plan": {
+      "description": "Generate PRD and task list from project spec (usage: /plan <spec location and additional instructions>)",
+      "prompt": "file:.claude/commands/planning.md\n\n$ARGUMENTS\n\nGenerate a comprehensive PRD and task list following the planning guidelines in agent-planning.md."
+    },
+    "status": {
+      "description": "Show current project status and what each agent is working on",
+      "prompt": "Review docs/task-list.md and give me a summary:\n- Which PRs are In Progress and who's working on them\n- Which PRs are Blocked-Ready and what they're waiting for\n- Which PRs are Broken and need fixing\n- Which PRs are Complete\n- Any file lock conflicts or coordination issues"
+    }
+  }
+}
