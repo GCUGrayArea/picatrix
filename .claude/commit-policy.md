@@ -2,7 +2,10 @@
 
 ## Rule: Never Commit Without Permission
 
-**You may ONLY commit changes to `docs/prd.md` and `docs/task-list.md` without asking the user first.**
+**You may ONLY commit changes to these coordination documents without asking the user first:**
+- `docs/prd.md`
+- `docs/task-list.md`
+- `.claude/agent-identity-lock.md`
 
 For ALL other files—implementation code, tests, documentation, configuration, etc.—you MUST ask the user for permission before committing.
 
@@ -17,6 +20,7 @@ For ALL other files—implementation code, tests, documentation, configuration, 
 
 - `docs/task-list.md` - Status changes, planning notes, file lists
 - `docs/prd.md` - Clarifications, requirement updates (rare)
+- `.claude/agent-identity-lock.md` - Claiming/releasing agent identities
 - Any file explicitly named in `docs/task-list.md` as a planning/coordination document
 
 These files are **coordination documents**. Committing them immediately is necessary for parallel agent coordination (see atomic-commits.md).
@@ -138,8 +142,8 @@ No exceptions. Even if it seems obvious that the code is ready, ask first.
 ## Summary
 
 ```
-Planning docs (docs/task-list.md, docs/prd.md):     Auto-commit ✓
-Everything else:                                    Ask first ✗
+Coordination docs (task-list.md, prd.md, agent-identity-lock.md):  Auto-commit ✓
+Everything else (code, tests, configs, docs):                      Ask first ✗
 ```
 
 This rule keeps you coordinated with other agents while keeping the user in control of actual product changes.
