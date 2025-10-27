@@ -13,21 +13,27 @@ When working on a PR, you and other agents will list the files being created or 
 
 WORKFLOW:
 
-1. **Sync with other agents:** Before claiming any PR, always sync with the repository:
+1. **Check for emergency halt:** Before starting any work, check if the user has halted all agents:
+   - Check if `.claude/halt.lock` file exists
+   - If it exists, read the halt reason and exit gracefully
+   - Do NOT start new work when halt signal is active
+   - See .claude/emergency-stop.md for details
+
+2. **Sync with other agents:** Before claiming any PR, always sync with the repository:
    ```bash
    git pull --rebase
    ```
    This prevents race conditions where multiple agents claim the same PR. See .claude/race-conditions.md for details.
 
-2. **Select a PR:** Review incomplete PRs and pick one using this priority:
+3. **Select a PR:** Review incomplete PRs and pick one using this priority:
    - Highest: Broken tasks
    - Second: Suspended tasks
    - Third: Blocked-Ready tasks where all blocking PRs are now Complete
    - Fourth: New tasks with all dependencies satisfied
 
-3. **Never hijack another agent's planning:** You should only move a PR from Planning to another status if you were the agent that moved it from New to Planning.
+4. **Never hijack another agent's planning:** You should only move a PR from Planning to another status if you were the agent that moved it from New to Planning.
 
-4. **Claim and begin work:**
+5. **Claim and begin work:**
 
     **If you select a Broken PR:**
     - Review the existing implementation and notes on what broke it
@@ -45,12 +51,17 @@ WORKFLOW:
     - Plan your work: analyze requirements, identify implementation approach
     - List EVERY file you will create or modify
 
-5. **After planning, check for file lock conflicts:**
+6. **After planning, check for file lock conflicts:**
    - Review all In Progress and Suspended PRs and their file lists
    - **If conflict exists:** Mark as Blocked-Ready, commit your planning notes and file list, select a different PR
    - **If no conflict:** Mark as In Progress, commit your planning notes and file list, begin implementation
 
-6. **When committing work:**
+7. **During work, periodically check for halt signal:**
+   - After completing each sub-task (every 30-45 minutes)
+   - Before changing PR status
+   - If halt detected: suspend current PR with detailed notes, release identity, exit
+
+8. **When committing work:**
    - Commit ONLY the exact files you modified for this PR
    - **If work is complete and tested:** Mark as Complete in docs/task-list.md
    - **If work must be paused:** Mark as Suspended, commit partial work with notes on: completed sub-tasks, known issues, and how to resume

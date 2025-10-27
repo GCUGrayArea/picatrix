@@ -52,6 +52,7 @@ A meta-repository template for running multiple Claude Code agents in parallel w
 - **`.claude/timeout-policy.md`** - PR timeout rules, when agents can reclaim abandoned work, how to handle long debugging sessions
 - **`.claude/agent-identity.md`** - How agents claim and release identities (White, Orange, Blonde, Pink, Blue, Brown)
 - **`.claude/race-conditions.md`** - How agents avoid claiming the same PR simultaneously
+- **`.claude/emergency-stop.md`** - How to halt all agents immediately with `/halt` and resume with `/resume`
 
 These documents contain important information about edge cases and best practices.
 
@@ -79,6 +80,8 @@ See `docs/example-task-list.md` for a realistic example of what task-list.md loo
 - `/work` - Start agent work session (claims identity, selects PR, implements)
 - `/qc` - Run quality control on completed PRs
 - `/status` - Show current project status
+- `/halt [reason]` - Emergency stop all running agents (suspends work, releases identities)
+- `/resume` - Resume normal operations after halt
 
 ## Customizing for Your Project
 
