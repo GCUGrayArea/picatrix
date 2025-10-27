@@ -11,31 +11,5 @@
         ]
       }
     ]
-  },
-  "commands": {
-    "work": {
-      "description": "Start working on the next available PR following parallel agent coordination rules",
-      "prompt": "file:.claude/agent-defaults.md\nfile:.claude/agent-identity.md\n\nYou are starting a new work session.\n\n1. First, claim an agent identity:\n   - Read .claude/agent-identity.lock to see available identities\n   - Take the first Available identity (White, Orange, Blonde, Pink, Blue, or Brown)\n   - Update the lock file to mark it as In Use\n   - Commit the identity claim immediately\n\n2. Then, review docs/prd.md and docs/task-list.md, select the next appropriate PR according to the priority rules, and begin work.\n\n3. Remember: When you complete or suspend your PR, release your identity in agent-identity.lock and commit that change.\n\nFollow commit-policy.md - only auto-commit coordination files (task-list.md, prd.md, agent-identity.lock)."
-    },
-    "qc": {
-      "description": "Run quality control checks on completed PRs",
-      "prompt": "file:.claude/qc-agent.md\n\nRun a full QC check. Review all Complete PRs in docs/task-list.md, run tests, check coverage, and mark as Broken/Approved/Certified as appropriate."
-    },
-    "plan": {
-      "description": "Generate PRD and task list from project spec (usage: /plan <spec location and additional instructions>)",
-      "prompt": "file:.claude/agent-planning.md\n\n$ARGUMENTS\n\nGenerate a comprehensive PRD and task list following the planning guidelines."
-    },
-    "status": {
-      "description": "Show current project status and what each agent is working on",
-      "prompt": "Review docs/task-list.md and give me a summary:\n- Which PRs are In Progress and who's working on them\n- Which PRs are Blocked-Ready and what they're waiting for\n- Which PRs are Broken and need fixing\n- Which PRs are Complete\n- Any file lock conflicts or coordination issues"
-    },
-    "halt": {
-      "description": "Emergency stop - halt all running agents immediately (usage: /halt [optional reason])",
-      "prompt": "file:.claude/emergency-stop.md\n\nCREATE HALT SIGNAL:\n\n1. Create .claude/halt.lock file with this content:\n   {\n     \"halted_at\": \"<current ISO timestamp>\",\n     \"reason\": \"$ARGUMENTS\",\n     \"halted_by\": \"user\"\n   }\n\n2. Inform the user:\n   \"Emergency halt signal activated. All running agents will stop at their next checkpoint and suspend their work.\n   \n   Reason: $ARGUMENTS\n   \n   To resume normal operations, run: /resume\"\n\nDo NOT read files, do NOT analyze code, ONLY create the halt.lock file and inform the user."
-    },
-    "resume": {
-      "description": "Resume normal operations after emergency halt",
-      "prompt": "file:.claude/emergency-stop.md\n\nREMOVE HALT SIGNAL:\n\n1. Check if .claude/halt.lock exists\n   - If it doesn't exist: inform user \"No active halt signal. Agents are already able to run.\"\n   - If it exists: delete it\n\n2. Inform the user:\n   \"Halt signal removed. Normal operations resumed.\n   \n   You can now start agents with /work. Any Suspended PRs from the halt can be resumed.\"\n\nDo NOT read files, do NOT analyze code, ONLY remove the halt.lock file and inform the user."
-    }
   }
 }

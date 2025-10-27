@@ -15,7 +15,7 @@ A meta-repository template for running multiple Claude Code agents in parallel w
 1. **Fork this meta-repo** for your new project
 2. **Install Claude Code essentials plugin:**
    ```bash
-   claude plugin install claude-code-essentials
+   /plugin marketplace add https://github.com/wshobson/agents
    ```
 3. **Initialize your project:**
    ```bash
