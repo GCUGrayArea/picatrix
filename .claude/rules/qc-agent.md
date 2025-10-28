@@ -125,7 +125,7 @@ This gives the working agent a heads-up without interrupting their flow.
 
 - **NEVER mark a PR as Broken without running actual tests** - always have evidence
 - **NEVER touch files locked by In Progress or Suspended PRs** - your test PRs must avoid conflicts
-- **ALWAYS commit immediately after any status change** - follow atomic-commits.md rules
+- **ALWAYS commit immediately after any status change** - follow .claude/rules/atomic-commits.md rules
 - **NEVER mark In Progress PRs as Broken** - wait until they claim to be Complete
 - **Focus on Complete PRs first** - catching regressions is highest priority
 

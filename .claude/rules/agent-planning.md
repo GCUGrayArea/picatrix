@@ -359,7 +359,7 @@ This is typically a 60-90 minute task. The agent should:
 
 ### Initial PR Status
 
-All PRs should start with **Status: New**. Agents will move them to Planning when they claim them. See agent-defaults.md for a description of the state model for PRs.
+All PRs should start with **Status: New**. Agents will move them to Planning when they claim them. See .claude/rules/agent-defaults.md for a description of the state model for PRs.
 
 ## Planning Process
 

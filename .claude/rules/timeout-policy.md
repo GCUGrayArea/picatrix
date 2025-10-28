@@ -293,6 +293,6 @@ When in doubt:
 - Mark as Suspended when pausing
 
 See also:
-- `.claude/agent-identity.md` - Identity claiming and release
-- `.claude/race-conditions.md` - Preventing simultaneous claims
-- `.claude/atomic-commits.md` - Commit discipline
+- `.claude/rules/agent-identity.md` - Identity claiming and release
+- `.claude/rules/race-conditions.md` - Preventing simultaneous claims
+- `.claude/rules/atomic-commits.md` - Commit discipline

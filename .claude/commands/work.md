@@ -2,8 +2,8 @@
 description: Start working on the next available PR following parallel agent coordination rules
 ---
 
-file:.claude/agent-defaults.md
-file:.claude/agent-identity.md
+file:.claude/rules/agent-defaults.md
+file:.claude/rules/agent-identity.md
 
 You are starting a new work session.
 
@@ -17,4 +17,4 @@ You are starting a new work session.
 
 3. Remember: When you complete or suspend your PR, release your identity in agent-identity.lock and commit that change.
 
-Follow commit-policy.md - only auto-commit coordination files (task-list.md, prd.md, agent-identity.lock).
+Follow .claude/rules/commit-policy.md - only auto-commit coordination files (task-list.md, prd.md, agent-identity.lock).

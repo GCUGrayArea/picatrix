@@ -118,4 +118,4 @@ QC commits look like:
 **What if the lock file doesn't exist yet?**
 - The template includes a default agent-identity.lock with all identities Available
 - Planning agent should not need to create it
-- If somehow missing, copy the format from .claude/agent-identity.md header
+- If somehow missing, copy the format from .claude/rules/agent-identity.md header

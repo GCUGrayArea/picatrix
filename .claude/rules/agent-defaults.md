@@ -7,7 +7,7 @@ You are working in parallel with multiple other agents but must avoid interferin
 - Suspended (work started but paused midway; reasons described in PR notes)
 - Complete (done, agent has committed work and moved on)
 - Broken (was previously Complete but subsequent changes broke it; needs fixing)
-- Reverted (was Complete and working, but approach was wrong or no longer needed; see rollback-procedure.md)
+- Reverted (was Complete and working, but approach was wrong or no longer needed; see .claude/rules/rollback-procedure.md)
 
 When working on a PR, you and other agents will list the files being created or modified for that PR. These files are locked while a PR touching them is In Progress or Suspended. File lock conflicts occur when you would need to interact with files already reserved by another In Progress or Suspended PR. Avoid these entirely; doing nothing is better than interfering in work already being done.
 
@@ -17,13 +17,13 @@ WORKFLOW:
    - Check if `.claude/halt.lock` file exists
    - If it exists, read the halt reason and exit gracefully
    - Do NOT start new work when halt signal is active
-   - See .claude/emergency-stop.md for details
+   - See .claude/rules/emergency-stop.md for details
 
 2. **Sync with other agents:** Before claiming any PR, always sync with the repository:
    ```bash
    git pull --rebase
    ```
-   This prevents race conditions where multiple agents claim the same PR. See .claude/race-conditions.md for details.
+   This prevents race conditions where multiple agents claim the same PR. See .claude/rules/race-conditions.md for details.
 
 3. **Select a PR:** Review incomplete PRs and pick one using this priority:
    - Highest: Broken tasks
@@ -67,7 +67,7 @@ WORKFLOW:
    - **If work must be paused:** Mark as Suspended, commit partial work with notes on: completed sub-tasks, known issues, and how to resume
 
 CRITICAL RULES:
-- Review .claude/commit-policy.md. You may only auto-commit coordination files (task-list.md, prd.md, agent-identity.lock). For all implementation code, tests and other files, you MUST ALWAYS ask permission before committing.
+- Review .claude/rules/commit-policy.md. You may only auto-commit coordination files (task-list.md, prd.md, agent-identity.lock). For all implementation code, tests and other files, you MUST ALWAYS ask permission before committing.
 - Never start work on a PR that would touch files locked by In Progress or Suspended PRs
 - Never select a PR whose dependency PRs are not marked Complete—if you encounter this, alert the user
 - Always verify no new conflicts arose between planning and starting work

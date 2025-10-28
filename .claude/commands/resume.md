@@ -2,7 +2,7 @@
 description: Resume normal operations after emergency halt
 ---
 
-file:.claude/emergency-stop.md
+file:.claude/rules/emergency-stop.md
 
 REMOVE HALT SIGNAL:
 

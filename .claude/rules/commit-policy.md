@@ -23,7 +23,7 @@ For ALL other files—implementation code, tests, documentation, configuration, 
 - `.claude/agent-identity.lock` - Claiming/releasing agent identities
 - Any file explicitly named in `docs/task-list.md` as a planning/coordination document
 
-These files are **coordination files**. Committing them immediately is necessary for parallel agent coordination (see atomic-commits.md).
+These files are **coordination files**. Committing them immediately is necessary for parallel agent coordination (see .claude/rules/atomic-commits.md).
 
 ## What You MUST Ask Before Committing
 
@@ -108,7 +108,7 @@ git commit -m "[Alice] PR-005: In Progress → Complete [AuthService.ts, UserMod
 **If you're the QC agent:**
 - You never commit implementation code
 - You only commit task-list.md changes (marking PRs as Broken, adding notes)
-- Follow your qc-agent.md instructions
+- Follow your .claude/rules/qc-agent.md instructions
 
 ## Why Planning Docs Are Different
 

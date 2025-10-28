@@ -2,7 +2,7 @@
 description: Emergency stop - halt all running agents immediately (usage: /halt [optional reason])
 ---
 
-file:.claude/emergency-stop.md
+file:.claude/rules/emergency-stop.md
 
 CREATE HALT SIGNAL:
 

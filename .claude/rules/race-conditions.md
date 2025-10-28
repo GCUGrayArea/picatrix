@@ -162,7 +162,7 @@ Force pushing overwrites other agents' work and breaks coordination. Always reso
 
 ## Prevention Through Atomic Commits
 
-Following the atomic commit policy (atomic-commits.md) helps prevent race conditions:
+Following the atomic commit policy (.claude/rules/atomic-commits.md) helps prevent race conditions:
 
 - Small, focused commits reduce window for conflicts
 - Immediate commits make your claims visible faster

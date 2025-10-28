@@ -2,7 +2,7 @@
 description: Generate PRD and task list from project spec (usage: /plan <spec location and additional instructions>)
 ---
 
-file:.claude/agent-planning.md
+file:.claude/rules/agent-planning.md
 
 $ARGUMENTS
 

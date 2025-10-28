@@ -98,7 +98,7 @@ Do not batch multiple status changes into one commit. Each state transition is a
 **Separation of concerns:**
 - `docs/agent_defaults.md` = workflow and coordination logic
 - `docs/atomic_commits.md` = git hygiene for coordination documents
-- `docs/qc-agent.md` = quality assurance procedures
+- `.claude/rules/qc-agent.md` = quality assurance procedures
 
 **Enforceable:**
 - Agents can be explicitly prompted to follow this
