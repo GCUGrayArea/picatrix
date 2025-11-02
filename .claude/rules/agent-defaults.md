@@ -1,4 +1,4 @@
-You are working in parallel with multiple other agents but must avoid interfering in their work. When you start working, review docs/prd.md and docs/task-list.md. Each PR in the docs/task-list.md will have exactly one of these statuses:
+You are working in parallel with multiple other agents but must avoid interfering in their work. When you start working, review docs/prd.md, docs/task-list.md, and docs/memory/*.md (see .claude/rules/memory-bank.md for reading order and update guidance). Each PR in the docs/task-list.md will have exactly one of these statuses:
 
 - New (not yet touched by an agent)
 - Planning (an agent has noted this PR and is analyzing its requirements)

@@ -9,6 +9,7 @@ A meta-repository template for running multiple Claude Code agents in parallel w
 - **Automatic QC** - Quality control agent tests completed work
 - **Source control safety** - Atomic commits, race condition resolution, commit policies
 - **Planning workflow** - Generates PRD and task list from specs
+- **Persistent context memory** - Memory bank accumulates implementation knowledge across sessions
 
 ## Setup
 
@@ -66,6 +67,7 @@ These documents contain important information about edge cases and best practice
 
 - `docs/prd.md` - Product Requirements Document
 - `docs/task-list.md` - PR task list with statuses and file locks
+- `docs/memory/*.md` - Memory bank (systemPatterns, techContext, activeContext, progress)
 - `.claude/agent-identity.lock` - Tracks which agent identities are in use
 
 These files are auto-committed by agents. Implementation code always requires user approval before committing.
@@ -89,12 +91,13 @@ Once you've initialized with `/plan` and started development:
 
 1. Replace this README with your project-specific README
 2. The `.claude/` directory contains the coordination rules
-3. The `docs/` directory contains your PRD, task list, and (eventually) architecture docs
+3. The `docs/` directory contains your PRD, task list, and memory bank (implementation knowledge)
 
 ## Architecture
 
 For details on how parallel agent coordination works, see:
 
-- `.claude/agent-defaults.md` - Agent workflow and rules
-- `.claude/atomic-commits.md` - Commit discipline for coordination
-- `.claude/commit-policy.md` - What agents can commit automatically
+- `.claude/rules/agent-defaults.md` - Agent workflow and rules
+- `.claude/rules/memory-bank.md` - Persistent context system
+- `.claude/rules/atomic-commits.md` - Commit discipline for coordination
+- `.claude/rules/commit-policy.md` - What agents can commit automatically
