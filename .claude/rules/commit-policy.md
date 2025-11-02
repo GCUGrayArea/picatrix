@@ -6,6 +6,7 @@
 - `docs/prd.md`
 - `docs/task-list.md`
 - `.claude/agent-identity.lock`
+- `docs/memory/*.md` (all memory bank files)
 
 For ALL other files—implementation code, tests, documentation, configuration, etc.—you MUST ask the user for permission before committing.
 
@@ -21,6 +22,7 @@ For ALL other files—implementation code, tests, documentation, configuration, 
 - `docs/task-list.md` - Status changes, planning notes, file lists
 - `docs/prd.md` - Clarifications, requirement updates (rare)
 - `.claude/agent-identity.lock` - Claiming/releasing agent identities
+- `docs/memory/*.md` - Memory bank updates (systemPatterns.md, techContext.md, activeContext.md, progress.md)
 - Any file explicitly named in `docs/task-list.md` as a planning/coordination document
 
 These files are **coordination files**. Committing them immediately is necessary for parallel agent coordination (see .claude/rules/atomic-commits.md).
@@ -142,8 +144,8 @@ No exceptions. Even if it seems obvious that the code is ready, ask first.
 ## Summary
 
 ```
-Coordination files (task-list.md, prd.md, agent-identity.lock):  Auto-commit ✓
-Everything else (code, tests, configs, docs):                    Ask first ✗
+Coordination files (task-list.md, prd.md, agent-identity.lock, memory/*.md):  Auto-commit ✓
+Everything else (code, tests, configs, docs):                                 Ask first ✗
 ```
 
 This rule keeps you coordinated with other agents while keeping the user in control of actual product changes.
