@@ -63,3 +63,11 @@ No exceptions. See `.claude/rules/commit-policy.md` for edge cases and examples.
 ### 3. Agent Coordination
 
 For coding tasks, review `.claude/rules/agent-defaults.md` for how to participate in this agent coordination system.
+
+### 4. Coding Standards - ENFORCE STRICTLY
+
+**All code must adhere to standards defined in `.claude/rules/coding-standards.md`**
+
+Read and follow these standards when writing or modifying code. Proactively refactor to maintain compliance.
+
+QC agents will flag standards violations as cleanup priorities.

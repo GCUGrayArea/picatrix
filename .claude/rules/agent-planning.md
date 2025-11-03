@@ -60,6 +60,7 @@ The PRD should comprehensively describe WHAT needs to be built and WHY. Include:
 
 ### Technical Requirements
 - Technology stack and framework choices
+- Coding standards and conventions (reference .claude/rules/coding-standards.md)
 - Integration points with external services
 - Performance requirements
 - Security and privacy considerations
@@ -406,6 +407,7 @@ If a PR is marked Broken by QC, it should be **fixed and returned to Complete st
 Before presenting your PRD and task list, verify:
 
 - [ ] PRD covers all aspects of the spec with sufficient detail
+- [ ] PRD references coding standards from .claude/rules/coding-standards.md
 - [ ] Each PR has clear acceptance criteria
 - [ ] Dependencies are explicitly stated
 - [ ] Blocks enable maximum parallelization

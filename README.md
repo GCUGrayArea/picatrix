@@ -98,6 +98,7 @@ Once you've initialized with `/plan` and started development:
 For details on how parallel agent coordination works, see:
 
 - `.claude/rules/agent-defaults.md` - Agent workflow and rules
+- `.claude/rules/coding-standards.md` - Code quality standards (function/file size limits, etc.)
 - `.claude/rules/memory-bank.md` - Persistent context system
 - `.claude/rules/atomic-commits.md` - Commit discipline for coordination
 - `.claude/rules/commit-policy.md` - What agents can commit automatically

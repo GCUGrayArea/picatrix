@@ -61,7 +61,12 @@ WORKFLOW:
    - Before changing PR status
    - If halt detected: suspend current PR with detailed notes, release identity, exit
 
-8. **When committing work:**
+8. **During implementation:**
+   - Follow all coding standards defined in .claude/rules/coding-standards.md
+   - Refactor proactively to maintain compliance as you write code
+   - QC agent will flag violations as cleanup priorities
+
+9. **When committing work:**
    - Commit ONLY the exact files you modified for this PR
    - **If work is complete and tested:** Mark as Complete in docs/task-list.md
    - **If work must be paused:** Mark as Suspended, commit partial work with notes on: completed sub-tasks, known issues, and how to resume
