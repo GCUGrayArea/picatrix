@@ -63,6 +63,7 @@ WORKFLOW:
 
 8. **During implementation:**
    - Follow all coding standards defined in .claude/rules/coding-standards.md
+   - When building LLM-powered features, apply principles from .claude/rules/llm-architecture.md
    - Refactor proactively to maintain compliance as you write code
    - QC agent will flag violations as cleanup priorities
 

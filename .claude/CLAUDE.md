@@ -71,3 +71,15 @@ For coding tasks, review `.claude/rules/agent-defaults.md` for how to participat
 Read and follow these standards when writing or modifying code. Proactively refactor to maintain compliance.
 
 QC agents will flag standards violations as cleanup priorities.
+
+### 5. LLM Application Architecture
+
+**When building LLM-powered features, follow principles in `.claude/rules/llm-architecture.md`**
+
+This document covers:
+- When to use structured outputs vs. client-side classification
+- Using function calling for deterministic operations
+- Prompt engineering limits and when to use structural solutions
+- Logging and debugging LLM behavior
+
+These patterns ensure robust, maintainable LLM applications.

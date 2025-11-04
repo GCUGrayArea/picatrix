@@ -141,6 +141,8 @@ Examples:
 - "Always run tests before marking PR Complete" → .claude/rules/testing-policy.md
 - "This project uses React hooks exclusively" → techContext.md
 - "Agents must verify no breaking changes before committing" → .claude/rules/quality-gates.md
+- "LLM features use structured outputs for state tracking" → systemPatterns.md (see .claude/rules/llm-architecture.md for principles)
+- "All LLM tool calls are logged for debugging" → systemPatterns.md (follows .claude/rules/llm-architecture.md)
 
 ## First Session Setup
 
