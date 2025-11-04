@@ -95,7 +95,7 @@ When updating memory bank:
 2. **Focus on activeContext.md and progress.md** - These track current state
 3. **Document current state accurately** - What works, what doesn't
 4. **Clarify next steps** - What should be done next
-5. **Update .claude/rules/ if needed** - New policies or patterns discovered
+5. **Suggest rule changes if needed** - If you discover patterns that should be rules, SUGGEST them to the user (you cannot modify `.claude/rules/` files yourself)
 6. **Commit immediately** - Memory bank files auto-commit per commit-policy.md
 
 ## Integration with Agent Coordination
@@ -132,17 +132,25 @@ When working on PRs in a multi-agent environment:
 
 The memory bank documents "what" (project state, architecture, progress). The `.claude/rules/` directory documents "how" (agent behavior, policies, workflows).
 
+**IMPORTANT: Agents can READ `.claude/rules/` files but CANNOT WRITE to them.** Rules files define agent behavior and constraints - allowing agents to modify them creates a security risk.
+
 When you discover patterns that should influence how agents work:
 - **Project patterns** → Update memory bank (systemPatterns.md)
-- **Agent behavior policies** → Create/update .claude/rules/ files
+- **Agent behavior policies** → SUGGEST to user (they must manually create/update .claude/rules/ files)
 
 Examples:
 - "All API endpoints use REST conventions" → systemPatterns.md
-- "Always run tests before marking PR Complete" → .claude/rules/testing-policy.md
+- "Always run tests before marking PR Complete" → SUGGEST creating .claude/rules/testing-policy.md to user
 - "This project uses React hooks exclusively" → techContext.md
-- "Agents must verify no breaking changes before committing" → .claude/rules/quality-gates.md
+- "Agents must verify no breaking changes before committing" → SUGGEST creating .claude/rules/quality-gates.md to user
 - "LLM features use structured outputs for state tracking" → systemPatterns.md (see .claude/rules/llm-architecture.md for principles)
 - "All LLM tool calls are logged for debugging" → systemPatterns.md (follows .claude/rules/llm-architecture.md)
+
+**When suggesting rule changes:**
+1. Explain why the rule is needed
+2. Provide the complete content the rule file should contain
+3. Specify the exact file path (e.g., `.claude/rules/new-rule.md`)
+4. Wait for user to manually create/update the file
 
 ## First Session Setup
 

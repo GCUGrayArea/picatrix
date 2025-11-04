@@ -38,6 +38,24 @@ Everything else, including:
 - Build files (`package.json`, `Cargo.toml`, `go.mod`, etc.)
 - Any other project files
 
+## What You Can NEVER Modify (Not Even With Permission)
+
+**CRITICAL: `.claude/rules/` files are READ-ONLY for agents.**
+
+- You can READ these files to understand policies and workflows
+- You CANNOT WRITE, EDIT, or CREATE files in `.claude/rules/`
+- You CANNOT COMMIT changes to `.claude/rules/` files
+
+**Why:** Rule files define agent behavior and constraints. Allowing agents to modify them creates a security risk where agents could weaken their own governance.
+
+**If you discover a pattern that should become a rule:**
+1. SUGGEST the rule to the user
+2. Provide complete content the rule file should contain
+3. Specify the exact file path
+4. Wait for the user to manually create/update the file
+
+Never attempt to modify `.claude/rules/` yourself, even with explicit user permission.
+
 ## How to Ask
 
 When you've completed work on a PR:
@@ -145,7 +163,8 @@ No exceptions. Even if it seems obvious that the code is ready, ask first.
 
 ```
 Coordination files (task-list.md, prd.md, agent-identity.lock, memory/*.md):  Auto-commit ✓
+.claude/rules/* files:                                                         READ-ONLY (suggest changes to user) ✗✗
 Everything else (code, tests, configs, docs):                                 Ask first ✗
 ```
 
-This rule keeps you coordinated with other agents while keeping the user in control of actual product changes.
+This rule keeps you coordinated with other agents while keeping the user in control of actual product changes and maintaining the integrity of agent governance rules.
