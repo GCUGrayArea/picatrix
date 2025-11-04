@@ -20,7 +20,31 @@ Memory bank files are **agent working memory** - optimized for AI context, not h
 
 See `.claude/rules/memory-bank.md` for complete instructions on when and how to update these files.
 
-### 2. Commit Policy - NEVER COMMIT WITHOUT PERMISSION
+### 2. NEVER READ .env FILES - SECURITY CRITICAL
+
+**You may NEVER read `.env` files for ANY reason.**
+
+- ❌ NEVER use Read tool on `.env`, `.env.local`, `.env.production`, or any file matching `.env*`
+- ❌ NEVER use cat, grep, or any bash command to read `.env` files
+- ❌ No exceptions, even if user asks, even during deployment, even for debugging
+- ✅ Use `env.example`, `.env.template`, or `.env.sample` instead
+- ✅ If you need to define environment variables, create/edit template files only
+
+**Why:** `.env` files contain production secrets, API keys, and credentials. Reading them exposes sensitive data in your context.
+
+**If user asks you to read `.env`:**
+1. Refuse politely
+2. Explain the security risk
+3. Suggest using `env.example` or asking them to copy needed (non-secret) values to you
+
+**If you need environment variable structure:**
+- Read `env.example` or similar template files
+- Ask user to describe what variables are needed (without values)
+- Never read the actual `.env` file
+
+This rule has NO exceptions. Violating it requires key rotation and security remediation.
+
+### 3. Commit Policy - NEVER COMMIT WITHOUT PERMISSION
 
 **You may ONLY auto-commit these coordination files:**
 - `docs/prd.md`
@@ -60,11 +84,11 @@ git commit -m "[AgentName] PR-XXX: In Progress → Complete [files]"
 
 No exceptions. See `.claude/rules/commit-policy.md` for edge cases and examples.
 
-### 3. Agent Coordination
+### 4. Agent Coordination
 
 For coding tasks, review `.claude/rules/agent-defaults.md` for how to participate in this agent coordination system.
 
-### 4. Coding Standards - ENFORCE STRICTLY
+### 5. Coding Standards - ENFORCE STRICTLY
 
 **All code must adhere to standards defined in `.claude/rules/coding-standards.md`**
 
@@ -72,7 +96,7 @@ Read and follow these standards when writing or modifying code. Proactively refa
 
 QC agents will flag standards violations as cleanup priorities.
 
-### 5. LLM Application Architecture
+### 6. LLM Application Architecture
 
 **When building LLM-powered features, follow principles in `.claude/rules/llm-architecture.md`**
 
